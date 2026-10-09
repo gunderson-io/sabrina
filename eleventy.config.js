@@ -3,6 +3,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/media": "media" });
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
+  eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
 
   // URLs keep the old Jekyll shape: /YYYY/MM/DD/slug.html (taken from the file name)
   eleventyConfig.addFilter("datePath", (inputPath) => {

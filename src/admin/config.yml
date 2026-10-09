@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: gunderson-io/sabrina
+  branch: main
+  commit_messages:
+    create: "New post: {{slug}}"
+    update: "Edit post: {{slug}}"
+    delete: "Remove post: {{slug}}"
+    uploadMedia: "Add photo: {{path}}"
+
+site_url: https://gunderson.io/sabrina/
+display_url: https://gunderson.io/sabrina/
+
+media_folder: src/media
+public_folder: /sabrina/media
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: src/posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    format: yaml-frontmatter
+    summary: "{{title}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, date_format: "MMMM D, YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { name: author, label: Author, widget: hidden, default: sabrina }
+      - { name: body, label: Post, widget: markdown, buttons: [bold, italic, link, heading-two, bulleted-list, numbered-list, quote], editor_components: [image], modes: [rich_text] }
