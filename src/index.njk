@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: The Circus
+---
+<h2 class="lede">Step right up</h2>
+<ol class="posts">
+  {% for p in collections.posts %}
+  <li>
+    <a class="card" href="{{ p.url | url }}">
+      <time datetime="{{ p.date | isoDate }}">{{ p.date | longDate }}</time>
+      <h3>{{ p.data.title }}</h3>
+      <p>{{ p.templateContent | excerpt }}</p>
+    </a>
+  </li>
+  {% endfor %}
+</ol>

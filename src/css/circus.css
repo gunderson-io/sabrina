@@ -1,0 +1,111 @@
+:root {
+  --paper: #fdf3e1;
+  --ink: #2b2320;
+  --muted: #7b6a5f;
+  --red: #b3262a;
+  --red-dark: #8c1c20;
+  --gold: #e8b53a;
+  --card: #fffaf0;
+  --rule: #ecd9b8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1f1715;
+    --ink: #f3e7d3;
+    --muted: #b6a493;
+    --red: #e0555a;
+    --red-dark: #f08084;
+    --card: #2a201d;
+    --rule: #43332d;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper) url("../images/stars.webp") 0 0 / 520px auto;
+  color: var(--ink);
+  font: 1.125rem/1.7 "Lora", Georgia, serif;
+}
+a { color: var(--red); text-underline-offset: .15em; }
+a:hover { color: var(--red-dark); }
+
+/* the tent */
+.tent { text-align: center; padding-bottom: 1.5rem; }
+.awning {
+  height: 54px;
+  background: repeating-linear-gradient(90deg, var(--red) 0 44px, #fff7e6 44px 88px);
+  /* scalloped bottom edge */
+  -webkit-mask: radial-gradient(circle 22px at 22px 100%, #0000 98%, #000) 0 0 / 44px 100%;
+  mask: radial-gradient(circle 22px at 22px 100%, #0000 98%, #000) 0 0 / 44px 100%;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  margin-top: 1.2rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.name {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 9vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -.01em;
+}
+.star { color: var(--gold); font-size: clamp(1.2rem, 4vw, 1.8rem); }
+.tagline {
+  margin: .5rem auto 0;
+  padding: 0 16px;
+  max-width: 34em;
+  color: var(--muted);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+main, footer { max-width: 42rem; margin: 0 auto; padding: 0 16px; }
+
+.lede {
+  margin: 1.2rem 0 1rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--red);
+}
+
+/* post list */
+.posts { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.card {
+  display: block;
+  padding: 1rem 1.2rem 1.1rem;
+  background: var(--card);
+  border: 2px solid var(--rule);
+  border-left: 8px solid var(--red);
+  border-radius: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform .15s, border-color .15s;
+}
+.card:hover, .card:focus-visible { transform: translateY(-2px) rotate(-.3deg); border-color: var(--red); outline: none; }
+.card time { font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.card h3 { margin: .1rem 0 .3rem; font-family: "Fraunces", Georgia, serif; font-size: 1.45rem; line-height: 1.25; color: var(--red); }
+.card p { margin: 0; font-size: 1rem; color: var(--ink); }
+
+/* a post */
+.post { background: var(--card); border: 2px solid var(--rule); border-radius: 12px; padding: 1.4rem 1.4rem 1rem; margin-top: 1rem; }
+.post .date { margin: 0; font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.post h1 { margin: .2rem 0 1rem; font-family: "Fraunces", Georgia, serif; font-weight: 800; font-size: clamp(1.8rem, 6vw, 2.5rem); line-height: 1.15; color: var(--red); }
+.body img { max-width: 100%; height: auto; border-radius: 8px; }
+.body p { margin: 0 0 1.1em; }
+.sig { font-family: "Fraunces", Georgia, serif; font-style: italic; color: var(--muted); text-align: right; margin: 1rem 0 0; }
+
+.pager { display: flex; justify-content: space-between; gap: 16px; margin: 1.5rem 0 .5rem; font-size: 1rem; }
+.pager .next { margin-left: auto; text-align: right; }
+.back { text-align: center; margin: 1rem 0 0; }
+
+footer { padding-top: 2.5rem; padding-bottom: 2rem; text-align: center; color: var(--muted); font-size: .9rem; }
+footer p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }

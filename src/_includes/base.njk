@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and title != site.title %}{{ title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ description or site.tagline }}">
+  <meta name="theme-color" content="#b3262a">
+  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:description" content="{{ description or site.tagline }}">
+  <link rel="icon" href="{{ '/images/favicon.svg' | url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/css/circus.css' | url }}">
+</head>
+<body>
+  <header class="tent">
+    <div class="awning" aria-hidden="true"></div>
+    <a class="brand" href="{{ '/' | url }}">
+      <span class="star" aria-hidden="true">&#9733;</span>
+      <span class="name">{{ site.title }}</span>
+      <span class="star" aria-hidden="true">&#9733;</span>
+    </a>
+    <p class="tagline">{{ site.tagline }}</p>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <p>&copy; Sabrina Gunderson &middot; <a href="{{ '/' | url }}">The Circus</a> &middot; <a href="https://gunderson.io/">gunderson.io</a></p>
+  </footer>
+</body>
+</html>

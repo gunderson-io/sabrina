@@ -1,0 +1,22 @@
+---
+layout: base.njk
+---
+<article class="post">
+  <p class="date"><time datetime="{{ page.date | isoDate }}">{{ page.date | longDate }}</time></p>
+  <h1>{{ title }}</h1>
+  <div class="body">
+    {{ content | safe }}
+  </div>
+  <p class="sig">&mdash; Sabrina</p>
+</article>
+
+<nav class="pager" aria-label="More posts">
+  {% set all = collections.posts %}
+  {% for p in all %}{% if p.url == page.url %}
+    {% set newer = all[loop.index0 - 1] if loop.index0 > 0 else null %}
+    {% set older = all[loop.index0 + 1] %}
+    {% if older %}<a class="prev" href="{{ older.url | url }}">&larr; {{ older.data.title }}</a>{% endif %}
+    {% if newer %}<a class="next" href="{{ newer.url | url }}">{{ newer.data.title }} &rarr;</a>{% endif %}
+  {% endif %}{% endfor %}
+</nav>
+<p class="back"><a href="{{ '/' | url }}">&larr; all the posts</a></p>
