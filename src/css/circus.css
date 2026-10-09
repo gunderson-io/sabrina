@@ -109,3 +109,6 @@ footer { padding-top: 2.5rem; padding-bottom: 2rem; text-align: center; color: v
 footer p { margin: 0; }
 
 @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+
+.write { text-decoration: none; opacity: .55; }
+.write:hover, .write:focus-visible { opacity: 1; }
